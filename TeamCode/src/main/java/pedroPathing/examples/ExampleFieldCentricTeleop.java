@@ -27,7 +27,7 @@ public class ExampleFieldCentricTeleop extends OpMode {
         follower = new Follower(hardwareMap, FConstants.class, LConstants.class);
         follower.setStartingPose(startPose);
     }
-
+//hiii
     /** This method is called continuously after Init while waiting to be started. **/
     @Override
     public void init_loop() {
@@ -52,7 +52,7 @@ public class ExampleFieldCentricTeleop extends OpMode {
 
         follower.setTeleOpMovementVectors(-gamepad1.left_stick_y, -gamepad1.left_stick_x, -gamepad1.right_stick_x, false);
         follower.update();
-
+        telemetry.addData("HIIIII");
         /* Telemetry Outputs of our Follower */
         telemetry.addData("X", follower.getPose().getX());
         telemetry.addData("Y", follower.getPose().getY());
