@@ -1,13 +1,34 @@
 package pedroPathing.examples;
 
+import com.acmerobotics.dashboard.FtcDashboard;
+import com.acmerobotics.dashboard.telemetry.MultipleTelemetry;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.OpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.Gamepad;
+import com.qualcomm.robotcore.util.ElapsedTime;
+
+import org.firstinspires.ftc.teamcode.math.MathHelper;
+import org.firstinspires.ftc.teamcode.utilities.math.linearalgebra.Pose;
+import org.firstinspires.ftc.teamcode.utilities.robot.Alliance;
+import org.firstinspires.ftc.teamcode.utilities.robot.Globals;
+import org.firstinspires.ftc.teamcode.utilities.robot.RobotEx;
+import org.firstinspires.ftc.teamcode.utilities.robot.command.framework.commandtypes.OneTimeCommand;
+import org.firstinspires.ftc.teamcode.utilities.robot.command.framework.commandtypes.SequentialCommandGroup;
+import org.firstinspires.ftc.teamcode.utilities.robot.command.framework.commandtypes.YieldCommand;
+import org.firstinspires.ftc.teamcode.utilities.robot.command.movement.MovementCommand;
+import org.firstinspires.ftc.teamcode.utilities.robot.movement.MovementConstants;
+import org.firstinspires.ftc.teamcode.utilities.robot.movement.PIDDrive;
+import org.firstinspires.ftc.teamcode.utilities.robot.subsystems.Intake;
+import org.firstinspires.ftc.teamcode.utilities.robot.subsystems.Outtake;
+
 import com.pedropathing.follower.Follower;
 import com.pedropathing.localization.Pose;
 import com.pedropathing.util.Constants;
-import  com.qualcomm.robotcore.eventloop.opmode.OpMode;
-import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import pedroPathing.constants.FConstants;
 import pedroPathing.constants.LConstants;
+
 
 /**
  * This is an example teleop that showcases movement and field-centric driving.
@@ -16,8 +37,8 @@ import pedroPathing.constants.LConstants;
  * @version 2.0, 12/30/2024
  */
 
-@TeleOp(name = "Example Field-Centric Teleop", group = "Examples")
-public class ExampleFieldCentricTeleop extends OpMode {
+@TeleOp(name = "Telop", group = "Examples")
+public class Telop extends OpMode {
     private Follower follower;
     private final Pose startPose = new Pose(0,0,0);
 
